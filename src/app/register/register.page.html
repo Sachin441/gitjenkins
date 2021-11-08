@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">RegisterPage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <form [formGroup]="ionicForm"  (ngSubmit)='register()' novalidate>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Contact
+      </ion-card-title>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <!-- <ion-input type="text" formControlName="username" name="username"  [(ngModel)]="username" ></ion-input> -->
+          <ion-input type="text"  name="username" formControlName="username"></ion-input>
+        </ion-item>
+        <div *ngIf="ionicForm.get('username').hasError('required')&& ionicForm.get('username').touched">
+          Name is requird!
+        </div>
+        <div *ngIf="ionicForm.get('username').hasError('minlength')&& ionicForm.get('username').touched">
+          Name must be minimum 4 character long!
+        </div>
+        <div *ngIf="ionicForm.get('username').hasError('maxlength')&& ionicForm.get('username').touched">
+          Name must be maximum 30 character long!
+        </div>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <!-- <ion-input type="email" name="email" [(ngModel)]="email"></ion-input> -->
+          <ion-input type="email" name="email" formControlName="email"></ion-input>
+        </ion-item>
+        <div *ngIf="ionicForm.get('email').hasError('required')&& ionicForm.get('email').touched">
+          Email is requird!
+        </div>
+        <ion-item>
+          <ion-label position="floating">Mobile Number</ion-label>
+          <!-- <ion-input type="tel" name="tel" [(ngModel)]="tel"></ion-input> -->
+          <ion-input id="mobile" type="mobile" name="mobile" formControlName="mobile"></ion-input>
+        </ion-item>
+        <div *ngIf="f.mobile.touched && f.mobile.invalid">
+          <div *ngIf="f.mobile.errors.required"> Mobile Number is requird!</div>
+          <ul>
+          <div *ngIf="f.mobile.errors.pattern">
+          <li>Please, Enter 10 digit Mobile Number.</li>
+          <li>Enter only number.</li>
+          </div>
+          </ul>
+          </div>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <!-- <ion-input type="password" name="password" [(ngModel)]="password"></ion-input> -->
+          <ion-input id="password" type="password" name="password" formControlName="password"></ion-input>
+        </ion-item>
+        <div *ngIf="f.password.touched && f.password.invalid && f.password.errors.required" class="alert alert-danger">Password is required.</div>
+
+        <ion-item>
+          <ion-label position="floating">Confirm Password</ion-label>
+          <!-- <ion-input type="password" name="cpassword" [(ngModel)]="cpassword"></ion-input> -->
+          <ion-input  id="cpassword" type="password" name="cpassword" formControlName="cpassword"></ion-input>
+        </ion-item>
+        <div *ngIf="f.cpassword.touched && f.cpassword.invalid && f.cpassword.errors.required" class="alert alert-danger">Retype Password Required.</div>
+        <!-- <div *ngIf="f.cpassword.errors.confirmedValidator">Password and Confirm Password must be match.</div> -->
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>Address</ion-card-title>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Full Address</ion-label>
+          <ion-input type="text" name="fullAddress" [(ngModel)]="fullAddress"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Zip Code</ion-label>
+          <ion-input type="text" name="zipcode" [(ngModel)]="zipcode"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">State</ion-label>
+          <ion-input type="text" name="state" [(ngModel)]="state"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">City</ion-label>
+          <ion-input type="text" name="city" [(ngModel)]="city"></ion-input>
+        </ion-item> -->
+      <!-- </ion-card-content> -->
+      <ion-button [disabled]="ionicForm.invalid" type="submit">Register</ion-button>
+    <!-- </ion-card-header>
+  </ion-card> -->
+</form>
+  </ion-col>
+</ion-row>
+</ion-grid>
+</div>
+</ion-content>

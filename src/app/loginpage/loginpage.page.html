@@ -1,0 +1,44 @@
+  <ion-content>
+  <ion-grid>
+    <ion-row>
+    <ion-col size-md="6" offset-md="3">
+    <form [formGroup]="ionicForm"(ngSubmit)='login()'>
+    <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="primary">LoginPage</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <!-- <ion-input type="email" name="username" [(ngModel)]="username"></ion-input> -->
+          <ion-input type="email" name="username" formControlName="username"></ion-input>
+        </ion-item>
+        <div *ngIf="ionicForm.get('username').hasError('required')&& ionicForm.get('username').touched">
+          Name is requird!
+        </div>
+        <div *ngIf="ionicForm.get('username').hasError('minlength')&& ionicForm.get('username').touched">
+          Name must be minimum 4 character long!
+        </div>
+        <div *ngIf="ionicForm.get('username').hasError('maxlength')&& ionicForm.get('username').touched">
+          Name must be maximum 30 character long!
+        </div>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <!-- <ion-input type="password" name="password" [(ngModel)]="password"></ion-input> -->
+          <ion-input type="password" name="password" formControlName="password"></ion-input>
+
+
+        </ion-item>
+        <!-- <ion-button color="dark" fill="clear" size="full">Forget email/password</ion-button> -->
+        <ion-button color="success" size="full" type="submit" [disabled]="ionicForm.invalid">Login</ion-button>
+        <ion-button color="success" size="full" fill="clear" routerLink="/register">Register</ion-button>
+      </ion-card-content>
+    </ion-card>
+ </div>
+</form>
+</ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>
