@@ -22,7 +22,7 @@
           Name must be minimum 4 character long!
         </div>
         <div *ngIf="ionicForm.get('username').hasError('maxlength')&& ionicForm.get('username').touched">
-          Name must be maximum 30 character long!
+          Name can't be more than 30 character long!
         </div>
         <ion-item>
           <ion-label position="floating">Password</ion-label>
