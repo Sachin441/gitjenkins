@@ -6,6 +6,6 @@ RUN npm install
 RUN npm install -g ionic cordova
 COPY ./ /app/
 RUN npm run-script build
-FROM nginx:alpine
-RUN rm -rf /usr/share/nginx/html/*
-COPY www/ /usr/share/nginx/html/
+# FROM nginx:alpine
+# RUN rm -rf /usr/share/nginx/html/*
+# COPY www/ /usr/share/nginx/html/
