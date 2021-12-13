@@ -25,12 +25,18 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ngv'),
-      subdir: '.',
+      dir: 'coverage/',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+        { type: 'html' ,dir: 'coverage'},
+        { type: 'text-summary' },
+        , {
+          type: 'lcovonly',
+          subdir: 'report-lcov'
+        },{
+          type: 'text-summary'
+        },
+        { type: 'cobertura', subdir: '.', file: 'coverage.xml' }
+      ],
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

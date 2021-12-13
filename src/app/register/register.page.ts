@@ -22,14 +22,7 @@ export class RegisterPage implements OnInit {
 
 
   constructor(public formBuilder: FormBuilder) {
-    this.ionicForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(30)]],
-      email: ['', [Validators.required,Validators.minLength(2),Validators.maxLength(30),
-         Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      mobile: ['', [Validators.required,Validators.minLength(10),Validators.maxLength(15),Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-      password: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(30)]],
-        cpassword:['',[Validators.required,Validators.minLength(6),Validators.maxLength(30)]]
-      });
+
     }
 
 
@@ -57,6 +50,14 @@ export class RegisterPage implements OnInit {
     return this.ionicForm.controls;
   }
   ngOnInit() {
+    this.ionicForm = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(30)]],
+      email: ['', [Validators.required,Validators.minLength(2),Validators.maxLength(30),
+         Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      mobile: ['', [Validators.required,Validators.minLength(10),Validators.maxLength(15),Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+      password: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(30)]],
+        cpassword:['',[Validators.required,Validators.minLength(6),Validators.maxLength(30)]]
+      });
   }
 
 }
