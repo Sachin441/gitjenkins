@@ -2,5 +2,5 @@ projectKey=IonicApplication
 serverUrl=http://localhost:9000
 serverVersion=9.1.0.47736
 dashboardUrl=http://localhost:9000/dashboard?id=IonicApplication
-ceTaskId=AX2fYs49diOIVjHy6Umf
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX2fYs49diOIVjHy6Umf
+ceTaskId=AX25Eb2bpIkqaM9DHhHs
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX25Eb2bpIkqaM9DHhHs

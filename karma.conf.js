@@ -29,14 +29,15 @@ module.exports = function (config) {
       reporters: [
         { type: 'html' ,dir: 'coverage'},
         { type: 'text-summary' },
-        , {
+        {
           type: 'lcovonly',
           subdir: 'report-lcov'
-        },{
+        },
+        {
           type: 'text-summary'
         },
         { type: 'cobertura', subdir: '.', file: 'coverage.xml' }
-      ],
+      ]
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
